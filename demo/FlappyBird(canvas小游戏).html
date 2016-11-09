@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title></title>
     <script>
-        //设置全局变量
-        var context;  //图形上下文
-        var birdIndex = 0;  //用来计算小鸟图片的 下标
+       
+        var context;  
+        var birdIndex = 0;  
         var cWidth = 400;
         var cHeight = 600;
-        var pipeHeight = 200;  //水管之间的举例
-        var tid;  //定时器返回值
-        var score = 0;//得分分数
-        var isScored = false;//是否开启得分
+        var pipeHeight = 200;  
+        var tid;  
+        var score = 0;
+        var isScored = false;
         var isOver = false;
-        var gravity = 4;  //设置重力，用它作为小鸟y方向的改变量，以便增加游戏难度
-        var velocity = 6;  //设置速率，用它作为水管x方向的改变量，以便增加游戏难度
+        var gravity = 4;  
+        var velocity = 6;  
        
 
         //第一步，把所有的图片全部绘制到canvas画布上
@@ -68,14 +68,7 @@
             this.draw = bottomPipeDraw;
         }
         function bottomPipeDraw(){
-            //drawImage()函数中9个参数
-            //drawImage()
-            //填3个参数，图片,x,y
-            //填5个参数, 图片,x,y,width,height
-            //填9个参数(全填)
-                //第1个表示一个 图片对象
-                //第2~5个参数 表示 对图片对象 截取的地方的坐标以及截取到的宽高
-                //第6~9个参数 表示 该图片对象放在 画布的位置 （坐标及宽高）
+           
             context.drawImage(this.image,10,490,130,760,this.x,this.y,this.width,this.height);
         }
 
@@ -90,20 +83,20 @@
         function birdDraw(){
             birdIndex++;
             var image = new Image();
-            image.src = 'images/'+birdIndex%3+'.gif';
+            image.src = '../images/'+birdIndex%3+'.gif';
             context.drawImage(image,this.x,this.y,this.width,this.height);
         }
 
 
 
         //b 创建背景对象
-        var bg = new Background(0,0,cWidth,cHeight,'images/bg.png');
+        var bg = new Background(0,0,cWidth,cHeight,'../images/bg.png');
         //创建地板对象
-        var ground = new Background(0,cHeight-50,cWidth,50,'images/ground.png');
+        var ground = new Background(0,cHeight-50,cWidth,50,'../images/ground.png');
         //创建上水管对象
-        var topPipe = new TopPipe(200,0,80,230,'images/pipe.png');
+        var topPipe = new TopPipe(200,0,80,230,'../images/pipe.png');
         //创建下方管对象
-        var bottomPipe = new BottomPipe(200,topPipe.height+pipeHeight,80,cHeight-topPipe.height-pipeHeight-ground.height,'images/pipe.png');
+        var bottomPipe = new BottomPipe(200,topPipe.height+pipeHeight,80,cHeight-topPipe.height-pipeHeight-ground.height,'../images/pipe.png');
         //创建小鸟对象
         var bird = new Bird(100,300,42,32);
 
@@ -237,7 +230,7 @@
 <canvas id="canvas" width="400" height="600" style="background-color: #e0e0e0;">
    
 </canvas>
- <div style="height:60px; width:100px; background: url(images/pipe.png) no-repeat -551px -500px; position:absolute; left:150px; top:250px; display: none; cursor:pointer;" id="box"></div>
+ <div style="height:60px; width:100px; background: url(../images/pipe.png) no-repeat -551px -500px; position:absolute; left:150px; top:250px; display: none; cursor:pointer;" id="box"></div>
 
 </body>
 </html>
