@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转立方体</title>
+    <!--<style type="text/css">-->
+        <!--.wrap{-->
+            <!--position: relative;-->
+            <!--border:solid 1px;-->
+            <!--width:;-->
+        <!--}-->
+        <!--.wrap div{-->
+            <!--width:200px;-->
+            <!--height:200px;-->
+            <!--position: absolute;-->
+            <!--top: 40%;-->
+            <!--left: 40%;-->
+            <!--/*background-color: red;*/-->
+            <!--color: green;-->
+            <!--line-height:200px;-->
+            <!--font-size:100px;-->
+            <!--text-align: center;-->
+        <!--}-->
+        <!--.wrap div:nth-child(1){-->
+            <!--background-color: pink;-->
+
+        <!--}-->
+        <!--.wrap div:nth-child(2){-->
+            <!--background-color: yellow;-->
+            <!--transform: -->
+        <!--}-->
+
+    <!--</style>-->
+    <style>
+        /*步骤*/
+        /*01 先有一个立方体 当立方体正对着我们的视线的时候 最容易绘制，此时不仅角度容易计算，而且显示在眼前的 只有一个面*/
+        /*通用设置*/
+        div {
+            width: 200px;
+            height: 200px;
+            /*background-color: red;*/
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            font-size: 100px;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            text-shadow: 0 0 10px green;
+        }
+        /*顶部*/
+
+        .wrap div:nth-child(1){
+            background-color: aqua;
+            transform-origin: top;
+            transform: rotateX(90deg);
+        }
+        /*底部*/
+        div:nth-child(2){
+            background-color: orange;
+            transform-origin: bottom;
+            transform: rotateX(270deg);
+        }
+        /*左边*/
+        div:nth-child(3){
+            background-color: yellow;
+            transform-origin: left;
+            transform: rotateY(270deg);
+        }
+        /*右边*/
+        div:nth-child(4){
+            background-color: green;
+            transform-origin: right;
+            transform: rotateY(90deg);
+        }
+        /*前面*/
+        div:nth-child(5){
+            background-color: blue;
+            transform: translateZ(200px);
+        }
+        /*后面*/
+        div:nth-child(6){
+            background-color: purple;
+            transform: rotateY(180deg);
+        }
+
+        /*02 立方体准备完毕，开始旋转展示*/
+        .wrap {
+            transform-style: preserve-3d;
+            transition: transform 10s;
+        }
+
+        .wrap:hover {
+            transform: rotateX(360deg) rotateY(1000deg) rotateZ(1000deg) translate(100px,100px);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+
+</body>
+</html>
