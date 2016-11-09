@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*通用属性设置*/
+       .photo-wall-3d{
+           width: 100%;
+           height: 300px;
+           position: absolute;
+           top: 50px;
+           /*border: 1px solid red;*/
+        }
+
+        .photo-wall-3d .stage{
+            perspective: 1400px;
+        }
+
+
+        .photo-wall-3d .contains {
+            position: absolute;
+            left: 40%;
+            height: 300px;
+            width: 350px;
+            top: 50%;
+
+            /*开启3D效果*/
+            transform-style: preserve-3d;
+
+            animation: rotate3D 12s infinite;
+            /*transform-origin: 50% 50%;*/
+
+            /*perspective: 600px;*/
+            transform: rotateX(30deg);
+
+
+
+        }
+
+        img {
+            /*对图片只设置宽或高，另一个值会自适应*/
+            height: 200px;
+            width: 350px;
+            position: absolute;
+
+        }
+
+        @keyframes rotate3D {
+            0%{transform: rotateY(0deg)}
+            16.7%{transform: rotateY(60deg)}
+            33.3%{transform: rotateY(120deg)}
+            50%{transform: rotateY(180deg)}
+            66.7%{transform: rotateY(240deg)}
+            83.3%{transform: rotateY(300deg)}
+            100%{transform: rotateY(360deg)}
+        }
+
+    </style>
+</head>
+<body>
+
+<!--3d照片墙-->
+<div class="photo-wall-3d">
+    <div class="stage">
+        <div class="contains">
+            <!--先用 内联样式表 布局所有的图片-->
+            <img src="images/07.jpg" alt="" style="transform: rotateY(0deg) translateZ(400px)"/>
+            <img src="images/08.jpg" alt="" style="transform: rotateY(60deg) translateZ(400px)"/>
+            <img src="images/09.jpg" alt="" style="transform: rotateY(120deg) translateZ(400px)"/>
+            <img src="images/10.jpg" alt="" style="transform: rotateY(180deg) translateZ(400px)"/>
+            <img src="images/11.jpg" alt="" style="transform: rotateY(240deg) translateZ(400px)"/>
+            <img src="images/12.jpg" alt="" style="transform: rotateY(300deg) translateZ(400px)"/>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
