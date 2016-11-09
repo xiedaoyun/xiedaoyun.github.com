@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴效果</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			
+		
+			
+			div{
+				
+				width: 1000px;
+				height: 460px;
+				margin: 50px auto;
+			   
+				overflow: hidden;
+			
+				
+			}
+			
+			ul li{
+				list-style: none;
+				width: 200px;
+				height: 460px;
+				float: left;
+				
+			
+			
+				
+			}
+			
+			div ul{
+				
+				width: 1150px;
+				/*height: 460px;*/
+				
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+	<div>
+		
+		<ul >  
+			<li><img src="images/1.jpg"/></li>
+			<li><img src="images/2.jpg"/></li>
+			<li><img src="images/3.jpg"/></li>
+			<li><img src="images/4.jpg"/></li>
+			<li ><img src="images/5.jpg"/></li>
+		</ul>
+		
+		
+	</div>
+	</body>
+</html>
+
+<script src="2.js"></script>
+<script type="text/javascript">
+	var box =  document.getElementsByTagName("div")[0];
+	
+	var lis = box.children[0].children;
+	
+	var ul = box.children[0];
+	
+	
+    
+	
+	
+	
+	for(var i = 0; i < lis.length;i++){
+		
+
+		   
+		   lis[i].onmouseover = function(){
+		   	
+		   	for(var j = 0; j<lis.length; j++){
+		
+		   		 startMove(lis[j],{width:100});
+		   	}
+		   	
+		   	
+		   	 startMove(this,{width:600});
+		   	
+		   	   
+		    }
+		   
+		   lis[i].onmouseout = function(){
+		   	
+		   	   for(var i = 0; i<lis.length;i++){
+		   	   	
+		   	   	    startMove(lis[i],{width:200});
+         
+		   	   }
+		   	   
+		   	   
+		   	   
+		   	   
+		   }
+		   
+		  
+	}
+	
+</script>
