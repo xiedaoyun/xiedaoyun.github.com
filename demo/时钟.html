@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.clock{
+				
+				width: 600px;
+				height: 600px;
+				margin: 50px auto;
+				background: url("images/clock.jpg") no-repeat;
+				position: relative;
+			}
+			
+			.clock div{
+				
+				  width: 100%;
+				  height: 100%;
+				  top: 0;
+				  left: 0;
+				  position: absolute;
+				  
+			}
+			
+			.h{
+				
+				background: url(images/hour.png) no-repeat center center;
+			}
+			
+			.m{
+				
+				background: url(images/minute.png) no-repeat center center;
+			}
+			
+			.s{
+				
+				background: url(images/second.png) no-repeat  center  center;
+			}
+			
+			
+			
+		</style>
+		
+	
+	</head>
+	<body>
+		 <div class="clock">
+		 	  <div class="h" id="hour"></div>
+		 	  <div class="m" id="minute"></div>
+		 	  <div class="s" id="second"></div>
+		 </div>
+	</body>
+</html>
+
+	<script type="text/javascript">
+		    //获取了元素
+		   var hour = document.getElementById("hour");
+		   var minute = document.getElementById("minute");
+		   var second = document.getElementById("second");
+		   
+//		   秒钟没一秒走 6度  360 / 60 = 6
+//        	   var date1 = new Date(); //得到最新时间     9:59   写在这只能获取一次
+          //启动定时器
+           setInterval(function() {
+           	
+           	   var date1 = new Date(); //得到最新时间   一直是最新的时间
+           	   //得到现在时间的毫秒数
+           	   ms = date1.getMilliseconds();   //得到现在的毫秒数
+//         	   得到现在是多少秒
+           	   s = date1.getSeconds() + ms / 1000; 
+//         	   获得分钟数
+           	   m = date1.getMinutes() + s / 60;
+//         	   console.log(m);
+           	   
+//         	   必须要有%12   因为是防止24进制
+           	   h = date1.getHours() % 12+ m / 60;   
+//         	   console.log(h);
+               
+//            一圈360     秒钟每秒6度     分钟每分也是6度    时钟每小时30度
+//            Transform 变化                              rotate 旋转                                     deg度数
+              second.style.webkitTransform  = "rotate("+ s*6 +"deg)" ;
+              minute.style.webkitTransform  = "rotate("+ m*6 +"deg)" ;
+              hour.style.webkitTransform  = "rotate("+ h*30 +"deg)" ;
+              
+              second.style.MozTransform  = "rotate("+ s*6 +"deg)" ;
+              minute.style.MozTransform  = "rotate("+ m*6 +"deg)" ;
+              hour.style.MozTransform  = "rotate("+ h*30 +"deg)" ;
+              
+              
+              
+             
+              
+              
+              
+               
+              
+
+           	   
+           	   
+           	
+           	
+           	
+           	
+           	
+           	
+           },1000);
+			
+			
+	</script>
